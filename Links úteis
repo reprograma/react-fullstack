@@ -1,0 +1,104 @@
+** Projeto Post-it **
+Invision:
+https://invis.io/YZOPJYKD3B4
+
+Trello:
+https://trello.com/invite/b/Lf72SP41/f5e9abcb24a4f08d89c0cfba7582c2da/reprograma-fullstack-post-it
+
+Netlify:
+http://reprograma-postit.netlify.com/login
+
+
+** Atalhos do VS Code **
+https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+
+
+** CSS **
+- Padrão BEM:
+http://getbem.com/introduction/
+
+- Variáves com CSS puro:
+https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables
+
+
+** REACT **
+Documentação do React:
+https://reactjs.org/
+
+- React Exemplos:
+https://reactjs.org/docs/getting-started.html#learn-react
+https://reactjs.org/community/examples.html
+https://daveceddia.com/react-practice-projects/
+https://github.com/WigoHunter/react-chatapp
+https://www.freecodecamp.org/challenges/build-a-recipe-box
+https://www.freecodecamp.org/challenges/build-a-pomodoro-clock
+https://www.google.com.br/search?q=react+examples&oq=react+e&aqs=chrome.0.69i59j69i60l3j0l2.2287j0j4&sourceid=chrome&ie=UTF-8
+
+- React Icons:
+https://gorangajic.github.io/react-icons/
+
+- React Router:
+https://reacttraining.com/react-router/web/guides/quick-start
+
+- React Router Redux:
+https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux
+
+- Redux:
+https://github.com/reduxjs/redux
+
+- React Redux:
+https://github.com/reduxjs/react-redux
+
+- Redux Thunk:
+https://github.com/reduxjs/redux-thunk
+
+- Axios
+https://github.com/axios/axios
+
+- React Dev Tools:
+https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
+
+- Redux Devtools Extension:
+https://github.com/zalmoxisus/redux-devtools-extension
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+
+- Netlify:
+https://www.netlify.com/
+
+
+** VAGAS **
+- Testes para Vagas:
+https://github.com/LFeh/frontend-challenges
+
+- Vagas de Frontend:
+https://github.com/frontendbr/vagas
+
+- Eventos de Frontend:
+https://github.com/frontendbr/eventos
+
+
+** Materiais, Cursos e Comunidade **
+
+- Frontend Handbook 2018:
+https://frontendmasters.com/books/front-end-handbook/2018/
+
+- Diferença entre map, filter e reduce
+https://medium.com/@osuissa/javascript-quando-usar-map-filter-ou-reduce-31aa10e33e9
+
+- Slack React Brasil:
+https://react-brasil-slack.herokuapp.com/
+
+- React Ninja (Fernando Daciuk):
+https://www.udemy.com/curso-reactjs-ninja/
+
+- React Nanodegree:
+https://br.udacity.com/course/react-nanodegree--nd019?gclid=CjwKCAjwr-PYBRB8EiwALtjbz2JjB7P52fIwZz5og1SW2XsJBasixA7c8RJ-U0M87QcuR1rSIxswXBoCBNcQAvD_BwE
+
+- Introdução a JavaScript: 
+https://br.udacity.com/course/intro-to-javascript--ud803
+
+- JavaScript Orientado a Objetos:
+https://br.udacity.com/course/object-oriented-javascript--ud015
+
+- ES6 JavaScript aprimorado:
+https://br.udacity.com/course/es6-javascript-improved--ud356
