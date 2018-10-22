@@ -1,6 +1,19 @@
+const linkCriarUmaConta = document.createElement('a')
+linkCriarUmaConta.className = 'link'
+linkCriarUmaConta.href = '/'
+linkCriarUmaConta.appendChild(document.createTextNode('Criar uma conta'))
 
+const linkFazerLogin = document.createElement('a')
+linkFazerLogin.className = 'link'
+linkFazerLogin.href = '/login'
+linkFazerLogin.appendChild(document.createTextNode('Fazer login'))
 
+const formularioLogin = document.createElement('form')
+formularioLogin.appendChild(linkCriarUmaConta)
+formularioLogin.appendChild(linkFazerLogin)
 
+const divisaoProjeto = document.getElementById('projeto')
+divisaoProjeto.appendChild(formularioLogin)
 
 
 
