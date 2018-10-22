@@ -1,8 +1,15 @@
-const linkCriarUmaConta = React.createElement('a', {className: 'link', href: '/'}, 'Criar uma conta')
+// React.createElement('a', {className: 'link', href: '/'}, 'Criar uma conta')
+const linkCriarUmaConta = <a className="link" href="/">Criar uma conta</a>
 
-const linkFazerLogin = React.createElement('a', {className: 'link', href: '/login'}, 'Fazer login')
+// React.createElement('a', {className: 'link', href: '/login'}, 'Fazer login')
+const linkFazerLogin = <a className="link" href="/login">Fazer login</a>
 
-const formularioLogin = React.createElement('form', {}, [linkCriarUmaConta, linkFazerLogin])
+// React.createElement('form', {}, [linkCriarUmaConta, linkFazerLogin])
+const formularioLogin = (
+  <form>
+    {[linkCriarUmaConta, linkFazerLogin]}
+  </form>
+)
 
 ReactDOM.render(formularioLogin, document.getElementById('projeto'))
 
