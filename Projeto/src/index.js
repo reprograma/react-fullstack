@@ -1,0 +1,1 @@
+ReactDOM.render(<Formulario />, document.getElementById('projeto'))
