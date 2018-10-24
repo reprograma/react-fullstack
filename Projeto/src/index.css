@@ -10,7 +10,7 @@ body {
   margin-bottom: 0.3rem;
 }
 
-.caixa-texto {
+.campo {
   font-size: 1rem;
   box-sizing: border-box;
   display: block;
@@ -21,7 +21,7 @@ body {
   border-radius: 5px;
 }
 
-.caixa-texto:focus {
+.campo:focus {
   outline: none;
   border-color: #9351b4;
   box-shadow: 0 0 10px #9351b4;
@@ -29,10 +29,6 @@ body {
 
 .grupo__erro {
   color: red;
-}
-
-.botao-vermelho {
-  background-color: red;
 }
 
 .botao {

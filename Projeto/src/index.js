@@ -1,3 +1,8 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+
+
 function Link(props) {
   return (
     <a className="link" href={props.url}>
@@ -33,7 +38,3 @@ const paginaLogin = (
 
 const divisaoProjeto = document.getElementById('projeto')
 ReactDOM.render(paginaLogin, divisaoProjeto)
-
-
-
-
