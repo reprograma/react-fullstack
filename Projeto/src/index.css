@@ -31,32 +31,6 @@ body {
   color: red;
 }
 
-.botao {
-  color: white;
-  font-size: 1.3rem;
-  font-weight: bold;
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  background: #9351b4;
-  border: 1px solid #9351b4;
-  border-radius: 5px;
-}
-
-.botao--desabilitado {
-  color: gray;
-  background: lightgrey;
-  border-color: lightgrey;
-}
-
-.link {
-  cursor: pointer;
-  color: #9351b4;
-  text-align: center;
-  text-decoration: underline;
-  display: block;
-}
-
 .navbar {
   display: flex;
   align-items: center;
@@ -246,23 +220,6 @@ body {
   .contato {
       padding-left: 10%;
       padding-right: 10%;
-  }
-}
-
-
-.login {
-  padding: 0.75rem 1rem 0;
-}
-
-@media (min-width: 768px) {
-  .login {
-      padding: 1.5rem 20% 0;
-  }
-}
-
-@media (min-width: 992px) {
-  .login {
-      padding: 2.25rem 30% 0;
   }
 }
 
