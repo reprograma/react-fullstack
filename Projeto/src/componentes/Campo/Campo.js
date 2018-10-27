@@ -2,12 +2,12 @@ import React from 'react'
 import './Campo.css'
 
 /*
-1) O componente pode mudar de estado? Sim // Classe [x]
-2) O que muda? state = { erro: '' } ou {erro: 'Campo obrigatório'}
-3) Qual o estado inicial? state = { erro: '' } // constructor
+1) O componente pode mudar de estado? Sim // Class
+2) Qual o estado inicial? state = { erro: '' } // constructor
+3) O que muda? setState({ erro: '' }) ou  // setState({erro: 'Campo obrigatório'})
 4) O que faz ele mudar?
-// function onChange pra verificar se eu devo ou não mostrar uma mensagem de erro
-if condicao mostra erro
+// function onChange pra verificar se devo ou não mostrar uma mensagem de erro
+if condição mostra erro
 - Email: obrigatorio, pelo menos 10 carateres
 - Senha: obrigatorio, pelo menos 6 caracteres
 */
@@ -18,27 +18,23 @@ class Campo extends React.Component {
   }
 
   valida = (evento) => {
-    const input = evento.target //document.getElementById('id')
-    console.log('chamou o valida')
-    console.log('alvo do evento', input)
-
-
+    const input = evento.target
     
-
-    if (this.props.required && input.value.trim() === '') { // email obrigatorio
+    if (this.props.required && input.value.trim() === '') {
       this.setState({ erro: 'Campo obrigatório'})
-      console.log('O estado é', this.state)
-    } else if (this.props.minLength && input.value.length < this.props.minLength) { //pelo menos 10 carateres
-      this.setState({ erro: `Digite pelo menos ${this.props.minLength} carateres`})
-    }else {
+    } else if (this.props.minLength && input.value.length < this.props.minLength) {
+      this.setState({ erro: `Digite pelo menos ${this.props.minLength} caracteres`})
+    } else if (this.props.pattern && !this.props.pattern.test(input.value)) {
+      this.setState({ erro: 'Valor inválido' })
+    } else {
       this.setState({ erro: ''})
     }
-    //pelo menos 10 carateres
   }
 
   render() {
     console.log('Quero ver se o render foi chamado')
     console.log(`this.props do campo ${this.props.name}`, this.props)
+    
     return (
       <div>
         <input 
@@ -50,19 +46,10 @@ class Campo extends React.Component {
           onChange={this.valida}
         />
 
-        <p className="grupo__erro">{this.state.erro}</p>
+        <p className="campo__erro">{this.state.erro}</p>
       </div>
     )
   }
 }
-
-// class Paciente extends Pessoa {}
-
-// const camila = new Paciente();
-// const leticia = new Paciente();
-
-// function Campo(props) {
-
-// }
 
 export default Campo
