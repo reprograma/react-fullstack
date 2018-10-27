@@ -4,10 +4,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.grupo__erro {
-  color: red;
-}
-
 .navbar {
   display: flex;
   align-items: center;

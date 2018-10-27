@@ -14,3 +14,7 @@
   border-color: #9351b4;
   box-shadow: 0 0 10px #9351b4;
 }
+
+.campo__erro {
+  color: red;
+}
