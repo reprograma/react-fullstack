@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './Campo.css'
 
 /*
@@ -11,32 +11,32 @@ if condição mostra erro
 - Email: obrigatorio, pelo menos 10 carateres
 - Senha: obrigatorio, pelo menos 6 caracteres
 */
-class Campo extends React.Component {
+class Campo extends Component {
   constructor(props) {
     super(props)
-    this.state = { erro: ''}
+    this.state = { erro: '' }
   }
 
   valida = (evento) => {
-    const input = evento.target
+    const { required, minLength } = this.props
+    const { type, value } = evento.target
+    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    let mensagem = ''
     
-    if (this.props.required && input.value.trim() === '') {
-      this.setState({ erro: 'Campo obrigatório'})
-    } else if (this.props.minLength && input.value.length < this.props.minLength) {
-      this.setState({ erro: `Digite pelo menos ${this.props.minLength} caracteres`})
-    } else if (this.props.pattern && !this.props.pattern.test(input.value)) {
-      this.setState({ erro: 'Valor inválido' })
-    } else {
-      this.setState({ erro: ''})
+    if (required && value.trim() === '') {
+      mensagem = 'Campo obrigatório'
+    } else if (minLength && value.length < minLength) {
+      mensagem = `Digite pelo menos ${minLength} caracteres`
+    } else if (type === 'email' && !regex.test(value)) {
+      mensagem = 'Valor inválido'
     }
+
+    this.setState({ erro: mensagem })
   }
 
   render() {
-    console.log('Quero ver se o render foi chamado')
-    console.log(`this.props do campo ${this.props.name}`, this.props)
-    
     return (
-      <div>
+      <>
         <input 
           id={this.props.id}
           className="campo"
@@ -44,10 +44,11 @@ class Campo extends React.Component {
           name={this.props.name}
           placeholder={this.props.placeholder}
           onChange={this.valida}
+          onBlur={this.valida}
         />
 
         <p className="campo__erro">{this.state.erro}</p>
-      </div>
+      </>
     )
   }
 }
