@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
 import './Campo.css'
 
 /*
@@ -36,7 +37,7 @@ class Campo extends Component {
 
   render() {
     return (
-      <>
+      <Fragment>
         <input 
           id={this.props.id}
           className="campo"
@@ -48,9 +49,16 @@ class Campo extends Component {
         />
 
         <p className="campo__erro">{this.state.erro}</p>
-      </>
+      </Fragment>
     )
   }
+}
+
+Campo.propTypes = {
+  id: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string
 }
 
 export default Campo

@@ -30,7 +30,7 @@ function Login() {
         minLength={6}
       />
       
-      <Botao desabilitado>Enviar</Botao>
+      <Botao disabled>Enviar</Botao>
 
       <Link url="/conta">Criar uma conta</Link>
     </main>

@@ -49,7 +49,7 @@ function Conta() {
         minLength={6}
       />
       
-      <Botao desabilitado>Enviar</Botao>
+      <Botao disabled>Enviar</Botao>
 
       <Link url="/login">Fazer login</Link>
     </main>
