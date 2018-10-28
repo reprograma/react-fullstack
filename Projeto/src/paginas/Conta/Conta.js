@@ -1,8 +1,6 @@
 import React from 'react'
+import Formulario from '../../componentes/Formulario/Formulario'
 import Link from '../../componentes/Link/Link'
-import Botao from '../../componentes/Botao/Botao'
-import Legenda from '../../componentes/Legenda/Legenda'
-import Campo from '../../componentes/Campo/Campo'
 import './Conta.css'
 
 function Conta() {
@@ -11,45 +9,21 @@ function Conta() {
       <h1>Conta</h1>
       <p>Envie o formulário para criar uma conta!</p>
       
-      <Legenda htmlFor="nome">Nome:</Legenda>
-      <Campo 
-        id="nome" 
-        type="text" 
-        name="nome" 
-        placeholder="Nome" 
-        required
-        minLength={10}
-      />
-      
-      <Legenda htmlFor="telefone">Telefone:</Legenda>
-      <Campo 
-        id="telefone" 
-        type="tel" 
-        name="telefone" 
-        placeholder="Telefone"
-        required
-      />
-      
-      <Legenda htmlFor="email">Email:</Legenda>
-      <Campo 
-        id="email" 
-        type="email" 
-        name="email"
-        placeholder="Email"
-        required
-      />
-      
-      <Legenda htmlFor="senha">Senha:</Legenda>
-      <Campo 
-        id="senha" 
-        type="password" 
-        name="senha"
-        placeholder="Senha"
-        required
-        minLength={6}
-      />
-      
-      <Botao disabled>Enviar</Botao>
+      <Formulario>
+        <Formulario.Legenda htmlFor="nome">Nome:</Formulario.Legenda>
+        <Formulario.Campo id="nome" type="text" name="nome" placeholder="Nome" required minLength={10} />
+        
+        <Formulario.Legenda htmlFor="telefone">Telefone:</Formulario.Legenda>
+        <Formulario.Campo id="telefone" type="tel" name="telefone" placeholder="Telefone" required />
+        
+        <Formulario.Legenda htmlFor="email">Email:</Formulario.Legenda>
+        <Formulario.Campo id="email" type="email" name="email" placeholder="Email" required />
+        
+        <Formulario.Legenda htmlFor="senha">Senha:</Formulario.Legenda>
+        <Formulario.Campo id="senha" type="password" name="senha" placeholder="Senha" required minLength={6} />
+        
+        <Formulario.Botao disabled>Enviar</Formulario.Botao>
+      </Formulario>
 
       <Link url="/login">Fazer login</Link>
     </main>
