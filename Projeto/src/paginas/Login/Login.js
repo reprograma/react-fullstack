@@ -3,14 +3,6 @@ import Formulario from '../../componentes/Formulario/Formulario'
 import Link from '../../componentes/Link/Link'
 import './Login.css'
 
-/*
-1) O componente pode mudar de estado? Sim // Class
-2) O que muda? setState({ desabilitado: true }) ou  // setState({desabilitado: false})
-3) Qual o estado inicial? state = { desabilitado: true } // constructor
-4) O que faz ele mudar?
-// function onChange para veririfar se o valor do campo está invalido
-
-*/
 class Login extends Component {
   constructor(props) {
     super(props)
