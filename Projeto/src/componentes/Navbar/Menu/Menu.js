@@ -21,6 +21,11 @@ class Menu extends Component {
     }))
   }
 
+  deslogaUsuario = () => {
+    this.props.onSairClick()
+    this.abreOuFechaOpcoes()
+  }
+
   render() {
     let classesBotao = "navbar-menu__botao"
     let classesOpcoes = "navbar-menu__opcoes"
@@ -48,9 +53,15 @@ class Menu extends Component {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" activeClassName="navbar-menu__opcoes--ativo" onClick={this.abreOuFechaOpcoes}>
-              Login
-            </NavLink>
+            {this.props.usuario ? (
+              <NavLink to="/login" activeClassName="navbar-menu__opcoes--ativo" onClick={this.deslogaUsuario}>
+                Sair
+              </NavLink>
+            ) : (
+              <NavLink to="/login" activeClassName="navbar-menu__opcoes--ativo" onClick={this.abreOuFechaOpcoes}>
+                Login
+              </NavLink>
+            )}
           </li>
         </ul>
       </nav>

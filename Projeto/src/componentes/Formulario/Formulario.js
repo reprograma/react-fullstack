@@ -7,7 +7,7 @@ import Botao from './Botao/Botao'
 
 function Formulario(props) {
   return (
-    <form>
+    <form onSubmit={props.onSubmit}>
       {props.children}
     </form>
   )

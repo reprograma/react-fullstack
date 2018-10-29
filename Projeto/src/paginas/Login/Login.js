@@ -13,8 +13,11 @@ class Login extends Component {
     this.state = { desabilitado: true }
   }
 
-  desabilita = (nome, erro) => {
-    this[nome].erro = erro
+  desabilita = (nome, valor, erro) => {
+    this[nome] = {
+      valor: valor,
+      erro: erro
+    }
 
     if (this.email.erro || this.senha.erro) {
       this.setState({ desabilitado: true })
@@ -23,13 +26,26 @@ class Login extends Component {
     }
   }
 
+  logaUsuario = (evento) => {
+    evento.preventDefault()
+    
+    const dados = {
+      email: this.email.valor,
+      senha: this.senha.valor
+    }
+
+    // chamar api de verdade
+    this.props.onEnviarClick(dados)
+    this.props.historico.push('/')
+  }
+
   render() {
       return (
         <main className="login">
         <h1>Login</h1>
         <p>Entre com seu email e senha.</p>
         
-        <Formulario>
+        <Formulario onSubmit={this.logaUsuario}>
           <Formulario.Legenda htmlFor="email">Email:</Formulario.Legenda>
           <Formulario.Campo 
             id="email" 

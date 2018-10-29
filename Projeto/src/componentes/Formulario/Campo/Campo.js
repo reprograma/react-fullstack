@@ -28,7 +28,7 @@ class Campo extends Component {
     this.setState({ erro: mensagem })
 
     const erro = mensagem ? true : false
-    onChange(name, erro)
+    onChange(name, value, erro)
   }
 
   render() {
