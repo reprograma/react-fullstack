@@ -37,7 +37,6 @@ function Conta() {
         name="email"
         placeholder="Email"
         required
-        pattern={/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
       />
       
       <Legenda htmlFor="senha">Senha:</Legenda>
