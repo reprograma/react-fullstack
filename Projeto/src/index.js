@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Navbar from './componentes/Navbar/Navbar';
 import Login from './paginas/Login/Login';
 import Conta from './paginas/Conta/Conta';
 import QuemSomos from './paginas/QuemSomos/QuemSomos';
@@ -10,7 +11,9 @@ import './index.css'
 
 function App() {
   return (
-    <Router>
+    <div className="app">
+      <Navbar />
+      
       <Switch>
         <Route path="/" exact component={Login} />
         <Route path="/login" component={Login} />
@@ -19,8 +22,16 @@ function App() {
         <Route path="/contato" component={Contato} />
         <Route component={NaoEncontrada} />
       </Switch>
-    </Router>
+    </div>
+    
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('projeto'))
+ReactDOM.render(
+  (
+    <Router>
+      <App />
+    </Router>
+  ), 
+  document.getElementById('projeto')
+)
