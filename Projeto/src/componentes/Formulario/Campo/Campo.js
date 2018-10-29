@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './Campo.css'
 
@@ -6,34 +6,43 @@ import './Campo.css'
 class Campo extends Component {
   constructor(props) {
     super(props)
+    this.valor = ''
     this.state = { erro: '' }
   }
 
-  
+  getValor() {
+    return this.valor
+  }
+
+  temErro() {
+    return this.state.erro ? true : false
+  }
 
   valida = (evento) => {
     const { required, minLength, onChange } = this.props
-    const { type, name, value } = evento.target
+
+    const tipo = evento.target.type
+    const valor = evento.target.value
+
     const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    
     let mensagem = ''
     
-    if (required && value.trim() === '') {
+    if (required && valor.trim() === '') {
       mensagem = 'Campo obrigatório'
-    } else if (minLength && value.length < minLength) {
+    } else if (minLength && valor.length < minLength) {
       mensagem = `Digite pelo menos ${minLength} caracteres`
-    } else if (type === 'email' && !regex.test(value)) {
+    } else if (tipo === 'email' && !regex.test(valor)) {
       mensagem = 'Valor inválido'
     }
 
-    this.setState({ erro: mensagem })
-
-    const erro = mensagem ? true : false
-    onChange(name, value, erro)
+    this.valor = valor
+    this.setState({ erro: mensagem }, onChange)
   }
 
   render() {
     return (
-      <Fragment>
+      <>
         <input 
           id={this.props.id}
           className="campo"
@@ -45,7 +54,7 @@ class Campo extends Component {
         />
 
         <p className="campo__erro">{this.state.erro}</p>
-      </Fragment>
+      </>
     )
   }
 }

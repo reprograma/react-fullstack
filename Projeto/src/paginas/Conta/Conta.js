@@ -8,22 +8,26 @@ class Conta extends Component {
   constructor(props) {
     super(props)
     
-    this.email = { erro: true }
-    this.senha = { erro: true }
-    
     this.state = { desabilitado: true }
+
+    this.nomeRef = React.createRef()
+    this.telefoneRef = React.createRef()
+    this.emailRef = React.createRef()
+    this.senhaRef = React.createRef()
   }
 
-  desabilita = (nome, erro) => {
-    this[nome].erro = erro
+  desabilita = () => {
+    const nome = this.nomeRef.current
+    const telefone = this.telefoneRef.current
+    const email = this.emailRef.current
+    const senha = this.senhaRef.current
 
-    if (this.email.erro || this.senha.erro) {
+    if (nome.temErro() || telefone.temErro() || email.temErro() || senha.temErro()) {
       this.setState({ desabilitado: true })
     } else {
       this.setState({ desabilitado: false })
     }
   }
-
 
   render() {
     return (
@@ -34,6 +38,7 @@ class Conta extends Component {
         <Formulario>
           <Formulario.Legenda htmlFor="nome">Nome:</Formulario.Legenda>
           <Formulario.Campo 
+            ref={this.nomeRef}
             id="nome" 
             type="text" 
             name="nome" 
@@ -45,6 +50,7 @@ class Conta extends Component {
           
           <Formulario.Legenda htmlFor="telefone">Telefone:</Formulario.Legenda>
           <Formulario.Campo 
+            ref={this.telefoneRef}
             id="telefone" 
             type="tel" 
             name="telefone" 
@@ -55,6 +61,7 @@ class Conta extends Component {
           
           <Formulario.Legenda htmlFor="email">Email:</Formulario.Legenda>
           <Formulario.Campo 
+            ref={this.emailRef}
             id="email" 
             type="email" 
             name="email" 
@@ -65,6 +72,7 @@ class Conta extends Component {
           
           <Formulario.Legenda htmlFor="senha">Senha:</Formulario.Legenda>
           <Formulario.Campo 
+            ref={this.senhaRef}
             id="senha" 
             type="password" 
             name="senha" 

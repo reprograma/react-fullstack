@@ -7,19 +7,17 @@ class Login extends Component {
   constructor(props) {
     super(props)
     
-    this.email = { erro: true }
-    this.senha = { erro: true }
-    
     this.state = { desabilitado: true }
+
+    this.emailRef = React.createRef()
+    this.senhaRef = React.createRef()
   }
 
-  desabilita = (nome, valor, erro) => {
-    this[nome] = {
-      valor: valor,
-      erro: erro
-    }
+  desabilita = () => {
+    const email = this.emailRef.current
+    const senha = this.senhaRef.current
 
-    if (this.email.erro || this.senha.erro) {
+    if (email.temErro() || senha.temErro()) {
       this.setState({ desabilitado: true })
     } else {
       this.setState({ desabilitado: false })
@@ -28,14 +26,18 @@ class Login extends Component {
 
   logaUsuario = (evento) => {
     evento.preventDefault()
+
+    const email = this.emailRef.current
+    const senha = this.senhaRef.current
     
     const dados = {
-      email: this.email.valor,
-      senha: this.senha.valor
+      email: email.getValor(),
+      senha: senha.getValor()
     }
 
     // chamar api de verdade
     this.props.onEnviarClick(dados)
+
     this.props.historico.push('/')
   }
 
@@ -48,6 +50,7 @@ class Login extends Component {
         <Formulario onSubmit={this.logaUsuario}>
           <Formulario.Legenda htmlFor="email">Email:</Formulario.Legenda>
           <Formulario.Campo 
+            ref={this.emailRef}
             id="email" 
             type="email" 
             name="email" 
@@ -58,6 +61,7 @@ class Login extends Component {
           
           <Formulario.Legenda htmlFor="senha">Senha:</Formulario.Legenda>
           <Formulario.Campo 
+            ref={this.senhaRef}
             id="senha" 
             type="password" 
             name="senha" 
