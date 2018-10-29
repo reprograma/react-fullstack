@@ -2,25 +2,18 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import './Campo.css'
 
-/*
-1) O componente pode mudar de estado? Sim // Class
-2) Qual o estado inicial? state = { erro: '' } // constructor
-3) O que muda? setState({ erro: '' }) ou  // setState({erro: 'Campo obrigatório'})
-4) O que faz ele mudar?
-// function onChange pra verificar se devo ou não mostrar uma mensagem de erro
-if condição mostra erro
-- Email: obrigatorio, pelo menos 10 carateres
-- Senha: obrigatorio, pelo menos 6 caracteres
-*/
+
 class Campo extends Component {
   constructor(props) {
     super(props)
     this.state = { erro: '' }
   }
 
+  
+
   valida = (evento) => {
-    const { required, minLength } = this.props
-    const { type, value } = evento.target
+    const { required, minLength, onChange } = this.props
+    const { type, name, value } = evento.target
     const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     let mensagem = ''
     
@@ -33,6 +26,9 @@ class Campo extends Component {
     }
 
     this.setState({ erro: mensagem })
+
+    const erro = mensagem ? true : false
+    onChange(name, erro)
   }
 
   render() {
