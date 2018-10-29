@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Legenda from '../Legenda/Legenda'
-import Campo from '../Campo/Campo'
-import Botao from '../Botao/Botao'
+import Legenda from './Legenda/Legenda'
+import Campo from './Campo/Campo'
+import Botao from './Botao/Botao'
 
 
 function Formulario(props) {
