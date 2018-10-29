@@ -37,6 +37,7 @@ class Menu extends Component {
 
     return (
       <nav className="navbar-menu">
+        {/*eslint-disable-next-line*/}
         <a className={classesBotao} onClick={this.abreOuFechaOpcoes}>
           Menu
         </a>
