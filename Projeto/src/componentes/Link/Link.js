@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link as PageLink } from 'react-router-dom'
 import './Link.css'
 
 function Link(props) {
   return (
-    <a className="link" href={props.url}>
+    <PageLink className="link" to={props.url}>
       {props.children}
-    </a>
+    </PageLink>
   )
 }
 

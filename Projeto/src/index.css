@@ -174,28 +174,6 @@ body {
   }
 }
 
-.quem-somos {
-  padding: 3rem 1rem 0;
-}
-
-@media (min-width: 992px) {
-  .quem-somos {
-      padding-left: 10%;
-      padding-right: 10%;
-  }
-}
-
-.contato {
-  padding: 3rem 1rem 0;
-}
-
-@media (min-width: 992px) {
-  .contato {
-      padding-left: 10%;
-      padding-right: 10%;
-  }
-}
-
 .home {
   min-height: calc(100vh - 60px);
   padding: 1.5rem 1rem 0;
@@ -212,22 +190,5 @@ body {
 @media (min-width: 992px) {
   .home {
       padding: 1.5rem 10% 0;
-  }
-}
-
-.nao-encontrada {
-  padding: 1.5rem 1rem 0;
-  text-align: center;
-}
-
-.nao-encontrada__simbolo {
-  color: #9351b4;
-  font-size: 5rem;
-  margin: 1rem 0 0;
-}
-
-@media (min-width: 992px) {
-  .nao-encontrada {
-      padding: 3rem 10% 0;
   }
 }
