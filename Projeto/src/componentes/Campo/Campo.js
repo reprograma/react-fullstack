@@ -10,7 +10,7 @@ class Campo extends Component {
     }
   }
 
-  temErro() {
+  temErro = () => {
     if (!this.state.modificado || this.state.erro) {
       return true
     } else {

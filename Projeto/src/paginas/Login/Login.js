@@ -5,18 +5,12 @@ import Legenda from '../../componentes/Legenda/Legenda'
 import Campo from '../../componentes/Campo/Campo'
 import './Login.css'
 
-/*
-1) O componente pode mudar de estado? Sim // Class
-2) O que muda? setState({ desabilitado: false }) ou  // setState({ desabilitado: true })
-3) Qual o estado inicial? state = { desabilitado: false } // constructor
-4) O que faz ele mudar?
-// function onChange pra verificar se todos os campos estão corretos (não tem erro)
-*/
 
 class Login extends Component {
   constructor(props) {
     super(props)
-    this.emailRef = React.createRef()
+
+    this.emailRef = React.createRef() // { current: null }
     this.senhaRef = React.createRef()
     this.state = { desabilitado: true }
   }
@@ -26,9 +20,9 @@ class Login extends Component {
     const campoSenha = this.senhaRef.current
 
     if (campoEmail.temErro() || campoSenha.temErro()) {
-        this.setState({ desabilitado: true })
+      this.setState({ desabilitado: true })
     } else {
-        this.setState({ desabilitado: false })
+      this.setState({ desabilitado: false })
     }
   }
 
