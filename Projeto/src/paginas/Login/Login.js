@@ -15,6 +15,22 @@ class Login extends Component {
     this.state = { desabilitado: true }
   }
 
+  enviaDados = (evento) => {
+    evento.preventDefault()
+
+    const campoEmail = this.emailRef.current
+    const campoSenha = this.senhaRef.current
+
+    const dados = {
+      email: campoEmail.getValor(),
+      senha: campoSenha.getValor()
+    }
+
+    this.props.logaUsuario(dados)
+
+    this.props.historico.push('/')
+  }
+
   habilitaOuDesabilita = () => {
     const campoEmail = this.emailRef.current
     const campoSenha = this.senhaRef.current
@@ -32,32 +48,17 @@ class Login extends Component {
         <h1>Login</h1>
         <p>Entre com seu email e senha.</p>
         
-        <Legenda htmlFor="email">Email:</Legenda>
-        <Campo 
-          ref={this.emailRef}
-          id="email" 
-          type="email" 
-          name="email" 
-          placeholder="Email" 
-          required 
-          onChange={this.habilitaOuDesabilita} 
-        />
-        
-        <Legenda htmlFor="senha">Senha:</Legenda>
-        <Campo 
-          ref={this.senhaRef}
-          id="senha" 
-          type="password" 
-          name="senha"
-          placeholder="Senha" 
-          required 
-          minLength={6}
-          onChange={this.habilitaOuDesabilita}
-        />
-        
-        <Botao desabilitado={this.state.desabilitado}>
-          Enviar
-        </Botao>
+        <form onSubmit={this.enviaDados}>
+          <Legenda htmlFor="email">Email:</Legenda>
+          <Campo ref={this.emailRef} id="email" type="email" name="email" placeholder="Email" required onChange={this.habilitaOuDesabilita} />
+          
+          <Legenda htmlFor="senha">Senha:</Legenda>
+          <Campo ref={this.senhaRef} id="senha" type="password" name="senha"placeholder="Senha" required minLength={6}onChange={this.habilitaOuDesabilita} />
+          
+          <Botao desabilitado={this.state.desabilitado}>
+            Enviar
+          </Botao>
+        </form>
 
         <Link url="/conta">Criar uma conta</Link>
       </main>

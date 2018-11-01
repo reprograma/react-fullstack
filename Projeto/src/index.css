@@ -173,39 +173,3 @@ body {
       margin-right: 5%;
   }
 }
-
-.home {
-  min-height: calc(100vh - 60px);
-  padding: 1.5rem 1rem 0;
-  background-image: url('./alunas.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.home__loading {
-  display: block;
-  margin: 0 auto;
-}
-
-@media (min-width: 992px) {
-  .home {
-      padding: 1.5rem 10% 0;
-  }
-}
-
-.nao-encontrada {
-  padding: 1.5rem 1rem 0;
-  text-align: center;
-}
-
-.nao-encontrada__simbolo {
-  color: #9351b4;
-  font-size: 5rem;
-  margin: 1rem 0 0;
-}
-
-@media (min-width: 992px) {
-  .nao-encontrada {
-      padding: 3rem 10% 0;
-  }
-}
