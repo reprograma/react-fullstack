@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import Navbar from './componentes/Navbar/Navbar'
 import Home from './paginas/Home/Home'
 import QuemSomos from './paginas/QuemSomos/QuemSomos'
 import Contato from './paginas/Contato/Contato'
@@ -17,10 +18,15 @@ function logaUsuario(dados) {
   usuario = dados
 }
 
+function deslogaUsuario() {
+  localStorage.removeItem('usuario')
+  usuario = null
+}
+
 function App() {
   return (
     <div className="app">
-      {/* <Navbar /> */}
+      <Navbar usuario={usuario} deslogaUsuario={deslogaUsuario} />
 
       <Switch>
         <Route path="/" exact render={() => {

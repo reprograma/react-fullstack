@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link as PaginaLink} from 'react-router-dom'
 import './Link.css'
 
 function Link(props) {
   return (
-    <a className="link" href={props.url}>
+    <PaginaLink className="link" to={props.url}>
       {props.children}
-    </a>
+    </PaginaLink>
   )
 }
 
