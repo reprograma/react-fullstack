@@ -4,7 +4,6 @@ import './Menu.css'
 
 // <Menu usuario={props.usuario} deslogaUsuario={props.deslogaUsuario} />
 // const props = { usuario: props.usuario, deslogaUsuario: props.deslogaUsuario }
-
 class Menu extends Component {
   constructor(props) {
     super(props)
@@ -35,7 +34,7 @@ class Menu extends Component {
 
     return (
       <nav className="navbar-menu">
-        <a className={classesDoBotao} onClick={this.abreOuFechaMenu}>
+        <a href className={classesDoBotao} onClick={this.abreOuFechaMenu}>
           Menu
         </a>
 

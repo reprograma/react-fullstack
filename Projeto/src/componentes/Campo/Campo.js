@@ -4,16 +4,16 @@ import './Campo.css'
 class Campo extends Component {
   constructor(props) {
     super(props)
-    this.valor = ''
-    this.state = { modificado: false, erro: '' }
+    this.input = { value: '' }
+    this.state = { erro: null }
   }
 
   getValor() {
-    return this.valor;
+    return this.input.value;
   }
 
   temErro = () => {
-    if (!this.state.modificado || this.state.erro) {
+    if (this.state.erro === null || this.state.erro !== '') {
       return true
     } else {
       return false
@@ -21,27 +21,20 @@ class Campo extends Component {
   }
 
   valida = (evento) => {
-    const input = evento.target
-    const { value, type } = input
+    this.input = evento.target
 
-    this.valor = value
-
-    const { required, minLength } = this.props
     const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     let mensagem = ''
 
-    if (required && value.trim() === '') {
+    if (this.props.required && this.input.value.trim() === '') {
       mensagem = 'Campo obrigatório'
-    } else if (minLength && value.length < minLength) {
-      mensagem = `Digite pelo menos ${minLength} caracteres`
-    } else if (type === 'email' && !regex.test(value)) {
+    } else if (this.props.minLength && this.input.value.length < this.props.minLength) {
+      mensagem = `Digite pelo menos ${this.props.minLength} caracteres`
+    } else if (this.props.type === 'email' && !regex.test(this.input.value)) {
       mensagem = 'Valor inválido'
     }
 
-    this.setState(
-      { modificado: true, erro: mensagem }, 
-      this.props.onChange
-    )
+    this.setState({ erro: mensagem }, this.props.onChange)
   }
 
   render() {
@@ -53,6 +46,7 @@ class Campo extends Component {
           type={this.props.type}
           name={this.props.name}
           placeholder={this.props.placeholder}
+          autoComplete="off"
           onChange={this.valida}
           onBlur={this.valida}
         />

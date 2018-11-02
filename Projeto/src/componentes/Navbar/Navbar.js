@@ -6,7 +6,6 @@ import './Navbar.css'
 
 // <Navbar usuario={usuario} deslogaUsuario={deslogaUsuario} />
 // const props = { usuario: usuario, deslogaUsuario: deslogaUsuario }
-
 function Navbar(props) {
   return (
     <header className="navbar">

@@ -10,7 +10,12 @@ import Login from './paginas/Login/Login'
 import NaoEncontrada from './paginas/NaoEncontrada/NaoEncontrada'
 import './index.css'
 
-let usuario = JSON.parse(localStorage.getItem('usuario'))
+let usuario = null
+
+const json = localStorage.getItem('usuario')
+if (json) {
+  usuario = JSON.parse(json)
+}
 
 function logaUsuario(dados) {
   const json = JSON.stringify(dados)

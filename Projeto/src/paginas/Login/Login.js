@@ -5,7 +5,6 @@ import Legenda from '../../componentes/Legenda/Legenda'
 import Campo from '../../componentes/Campo/Campo'
 import './Login.css'
 
-
 class Login extends Component {
   constructor(props) {
     super(props)
@@ -31,7 +30,7 @@ class Login extends Component {
     this.props.historico.push('/')
   }
 
-  habilitaOuDesabilita = () => {
+  habilitaOuDesabilitaBotao = () => {
     const campoEmail = this.emailRef.current
     const campoSenha = this.senhaRef.current
 
@@ -50,10 +49,10 @@ class Login extends Component {
         
         <form onSubmit={this.enviaDados}>
           <Legenda htmlFor="email">Email:</Legenda>
-          <Campo ref={this.emailRef} id="email" type="email" name="email" placeholder="Email" required onChange={this.habilitaOuDesabilita} />
+          <Campo ref={this.emailRef} id="email" type="email" name="email" placeholder="Email" required onChange={this.habilitaOuDesabilitaBotao} />
           
           <Legenda htmlFor="senha">Senha:</Legenda>
-          <Campo ref={this.senhaRef} id="senha" type="password" name="senha"placeholder="Senha" required minLength={6}onChange={this.habilitaOuDesabilita} />
+          <Campo ref={this.senhaRef} id="senha" type="password" name="senha" placeholder="Senha" required minLength={6} onChange={this.habilitaOuDesabilitaBotao} />
           
           <Botao desabilitado={this.state.desabilitado}>
             Enviar

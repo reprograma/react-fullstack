@@ -1,5 +1,4 @@
 import React from 'react'
-import gatinho from './gatinho.jpg'
 import './NaoEncontrada.css'
 
 function NaoEncontrada() {
@@ -9,7 +8,6 @@ function NaoEncontrada() {
       <p className="nao-encontrada__simbolo">
         :-(
       </p>
-      <img src={gatinho} alt="Gatinho não encontrado"/>
     </main>
   )
 }
