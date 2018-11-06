@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { withRouter, BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { Provider, connect } from 'react-redux'
+import store from './redux/store'
 import Navbar from './componentes/Navbar/Navbar'
 import Home from './paginas/Home/Home'
 import QuemSomos from './paginas/QuemSomos/QuemSomos'
@@ -10,25 +12,11 @@ import Login from './paginas/Login/Login'
 import NaoEncontrada from './paginas/NaoEncontrada/NaoEncontrada'
 import './index.css'
 
-let usuario = null
+function App(props) {
+  const usuario = props.usuario
+  const logaUsuario = props.logaUsuario
+  const deslogaUsuario = props.deslogaUsuario
 
-const json = localStorage.getItem('usuario')
-if (json) {
-  usuario = JSON.parse(json)
-}
-
-function logaUsuario(dados) {
-  const json = JSON.stringify(dados)
-  localStorage.setItem('usuario', json)
-  usuario = dados
-}
-
-function deslogaUsuario() {
-  localStorage.removeItem('usuario')
-  usuario = null
-}
-
-function App() {
   return (
     <div className="app">
       <Navbar usuario={usuario} deslogaUsuario={deslogaUsuario} />
@@ -51,9 +39,51 @@ function App() {
   )
 }
 
+// const state = {
+//   usuario: { email: 'camila@email.com' }
+// }
+function passaDadosDoEstadoParaMeuComponente(state) {
+  const props = {
+    usuario: state.usuario
+  }
+
+  return props
+}
+
+function passaFuncoesQueDisparamAcoesViaProps(dispatch) {
+ const props = {
+  logaUsuario: (dados) => {
+    const acao = {
+      type: 'LOGA_USUARIO',
+      dados: dados
+    }
+
+    dispatch(acao)
+  },
+  deslogaUsuario: () => {
+    const acao = {
+      type: 'DESLOGA_USUARIO'
+    }
+
+    dispatch(acao)
+  }
+ }
+
+ return props
+}
+
+const conectaNaStore = connect(
+  passaDadosDoEstadoParaMeuComponente, 
+  passaFuncoesQueDisparamAcoesViaProps
+)
+
+const AppConectada = withRouter(conectaNaStore(App))
+
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>, 
+  <Provider store={store}>
+    <BrowserRouter>
+      <AppConectada />
+    </BrowserRouter>
+  </Provider>, 
   document.getElementById('projeto')
 )
