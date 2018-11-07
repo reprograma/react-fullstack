@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { logaUsuario } from '../../redux/actions'
 import Link from '../../componentes/Link/Link'
 import Botao from '../../componentes/Botao/Botao'
 import Legenda from '../../componentes/Legenda/Legenda'
@@ -12,6 +13,7 @@ class Login extends Component {
 
     this.emailRef = React.createRef() // { current: null }
     this.senhaRef = React.createRef()
+    
     this.state = { desabilitado: true }
   }
 
@@ -67,11 +69,6 @@ class Login extends Component {
 }
 
 export default connect(
-  null, // passaEstadoNoProps
-  (dispatch) => ({ // passaAcoesNoProps
-    logaUsuario: (dados) => dispatch({
-      type: 'LOGA_USUARIO',
-      dados: dados
-    })
-  })
+  null, 
+  { logaUsuario }
 )(Login)

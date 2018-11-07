@@ -16,5 +16,5 @@ function Home(props) {
 }
 
 export default connect(
-  state => ({ usuario: state.usuario })
+  ({ usuario }) => ({ usuario })
 )(Home)
