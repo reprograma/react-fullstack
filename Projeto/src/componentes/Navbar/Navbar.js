@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import Menu from '../Menu/Menu'
 import logo from './logo.png'
 import './Navbar.css'
@@ -44,4 +44,4 @@ const conectaNaStore = connect(
 
 const NavbarConectado = conectaNaStore(Navbar)
 
-export default NavbarConectado
+export default withRouter(NavbarConectado)
