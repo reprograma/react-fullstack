@@ -66,21 +66,12 @@ class Login extends Component {
   }
 }
 
-function passaAcoesNoProps(dispatch) {
-  return {
-    logaUsuario: (dados) => {
-      const acao = {
-        type: 'LOGA_USUARIO',
-        dados: dados
-      }
-
-      dispatch(acao)
-    }
-  }
-}
-
-const conectaNaStore = connect(null, passaAcoesNoProps)
-
-const LoginConectado = conectaNaStore(Login)
-
-export default LoginConectado
+export default connect(
+  null, // passaEstadoNoProps
+  (dispatch) => ({ // passaAcoesNoProps
+    logaUsuario: (dados) => dispatch({
+      type: 'LOGA_USUARIO',
+      dados: dados
+    })
+  })
+)(Login)

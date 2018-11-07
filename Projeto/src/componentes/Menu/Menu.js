@@ -34,9 +34,9 @@ class Menu extends Component {
 
     return (
       <nav className="navbar-menu">
-        <a href className={classesDoBotao} onClick={this.abreOuFechaMenu}>
+        <button className={classesDoBotao} onClick={this.abreOuFechaMenu}>
           Menu
-        </a>
+        </button>
 
         <ul className={classesDasOpcoes}>
           <li>
