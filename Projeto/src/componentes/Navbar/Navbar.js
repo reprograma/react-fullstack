@@ -19,13 +19,13 @@ function Navbar(props) {
   )
 }
 
-function passaNoPropsDadosDoEstado(state) {
+function passaEstadoNoProps(state) {
   return {
     usuario: state.usuario
   }
 }
 
-function passaNoPropsDisparadoresDeAcao(dispatch) {
+function passaAcoesNoProps(dispatch) {
   return {
     deslogaUsuario: () => {
       const acao = {
@@ -38,8 +38,8 @@ function passaNoPropsDisparadoresDeAcao(dispatch) {
 }
 
 const conectaNaStore = connect(
-  passaNoPropsDadosDoEstado,
-  passaNoPropsDisparadoresDeAcao
+  passaEstadoNoProps,
+  passaAcoesNoProps
 )
 
 const NavbarConectado = conectaNaStore(Navbar)
