@@ -1,20 +1,45 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import Postit from '../../componentes/Postit/Postit'
+import carregando from './carregando.svg'
 import './Home.css'
 
-function Home(props) {
-  if (!props.usuario) {
-    return <Redirect to="/login" />
+class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { carregando: false }
   }
 
-  return (
-    <main className="home">
 
-    </main>
-  )
+  render() {
+    if (!this.props.usuario) {
+      return <Redirect to="/login" />
+    }
+
+    return (
+      <main className="home">
+        {this.state.carregando ? (
+          <img className="home__carregando" src={carregando} alt="Carregando" />
+        ) : (
+          <div>
+            <Postit />
+
+            {this.props.postits.map(postit => (
+              <Postit 
+                key={postit.id} 
+                id={postit.id} 
+                titulo={postit.titulo} 
+                texto={postit.texto} 
+              />
+            ))}
+          </div>
+        )}
+      </main>
+    )
+  }
 }
 
 export default connect(
-  ({ usuario }) => ({ usuario })
+  ({ usuario, postits }) => ({ usuario, postits })
 )(Home)
