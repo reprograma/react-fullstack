@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { cadastraPostit } from '../../redux/actions'
+import { cadastraPostit, alteraPostit } from '../../redux/actions'
 import { connect } from 'react-redux' 
 import './Postit.css'
 
@@ -15,16 +15,17 @@ class Postit extends Component {
     }
 
     if (this.props.id) {      
-      this.props.cadastraPostit(dados)
-
-      form.reset()
-    } else {
       dados.id = this.props.id
       this.props.alteraPostit(dados)
+    } else {
+      this.props.cadastraPostit(dados)
+      form.reset()
     }
   }
 
   render() {
+    const cadastranto = !this.props.id
+    
     return (
       <form className="postit" onSubmit={this.cadastraOuEditaPostit}>
         <input 
@@ -32,12 +33,16 @@ class Postit extends Component {
           type="text" 
           name="titulo"
           placeholder="Título"
+          autoComplete="off"
+          defaultValue={this.props.titulo}
         />
         <textarea
           className="postit__texto" 
           name="texto" 
           placeholder="Digite um texto..." 
           rows={5}
+          autoComplete="off"
+          defaultValue={this.props.texto}
         />
         <button className="postit__botao-concluir">
           Concluído
@@ -49,5 +54,5 @@ class Postit extends Component {
 
 export default connect(
   null,
-  { cadastraPostit }
+  { cadastraPostit, alteraPostit }
 )(Postit)

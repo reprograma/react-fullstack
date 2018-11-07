@@ -25,6 +25,7 @@ class Home extends Component {
           <div>
             <Postit />
 
+            <div>
             {this.props.postits.map(postit => (
               <Postit 
                 key={postit.id} 
@@ -33,6 +34,7 @@ class Home extends Component {
                 texto={postit.texto} 
               />
             ))}
+            </div>
           </div>
         )}
       </main>

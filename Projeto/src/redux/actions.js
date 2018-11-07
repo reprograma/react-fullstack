@@ -18,3 +18,10 @@ export function cadastraPostit(dados) {
     dados
   }
 }
+
+export function alteraPostit(dados) {
+  return {
+    type: 'ALTERA_POSTIT',
+    dados
+  }
+}
