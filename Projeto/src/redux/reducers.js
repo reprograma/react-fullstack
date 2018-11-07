@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 const usuarioInicial = null
 
-function usuario(usuarioAtual = usuarioInicial, action) {
+function usuario(state = usuarioInicial, action) {
   switch(action.type) {
     case 'LOGA_USUARIO':
       const usuarioLogado = action.dados
@@ -11,7 +11,7 @@ function usuario(usuarioAtual = usuarioInicial, action) {
       const usuarioDeslogado = null
       return usuarioDeslogado
     default:
-      return usuarioAtual
+      return state
   }
 }
 
