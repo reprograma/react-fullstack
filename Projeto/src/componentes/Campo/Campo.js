@@ -38,11 +38,17 @@ class Campo extends Component {
   }
 
   render() {
+    let classesDoCampo = 'campo'
+
+    if (this.props.className) {
+      classesDoCampo += ` ${this.props.className}`
+    }
+
     return (
       <div>
         <input 
           id={this.props.id}
-          className="campo"
+          className={classesDoCampo}
           type={this.props.type}
           name={this.props.name}
           placeholder={this.props.placeholder}
@@ -51,7 +57,9 @@ class Campo extends Component {
           onBlur={this.valida}
         />
 
-        <p className="campo__erro">{this.state.erro}</p>
+        {this.state.erro && (
+          <p className="campo__erro">{this.state.erro}</p>
+        )}
       </div>
     )
   }

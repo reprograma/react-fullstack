@@ -15,7 +15,7 @@ function usuario(state = usuarioInicial, action) {
       localStorage.setItem('usuario', json)
       return usuario
     case 'DESLOGA_USUARIO':
-      localStorage.removeItem('item')
+      localStorage.removeItem('usuario')
       return null
     default:
       return state
@@ -39,6 +39,21 @@ function postits(state = [], action) {
   }
 }
 
-const reducers = combineReducers({ usuario, postits })
+function filtro(state = '', action) {
+  switch(action.type) {
+    case 'ALTERA_FILTRO':
+      return action.texto
+    default:
+      return state
+  }
+}
+
+export function getPostitsFiltrados(state) {
+  return state.postits.filter(postit =>
+    postit.titulo.toLowerCase().match(state.filtro.toLowerCase())
+  )
+}
+
+const reducers = combineReducers({ usuario, postits, filtro })
 
 export default reducers

@@ -1,3 +1,12 @@
+.navbar__filtro {
+  margin-bottom: 0;
+}
+
+.navbar-menu__foto {
+  max-height: 50px;
+  border-radius: 100%;
+}
+
 .navbar-menu__botao {
   cursor: pointer;
   font-size: 16px;
@@ -70,12 +79,9 @@
     transition: initial;
   }
 
-  .navbar-menu__opcoes--aberto {
-    transform: initial;
-  }
-
-  .navbar-menu__opcoes--ativo {
-    border-color: #9351b4;
+  .navbar-menu__opcoes li a {
+    color: #9351b4;
+    padding: 0.3rem 0;
   }
 
   .navbar-menu__opcoes li + li {
@@ -83,8 +89,21 @@
     margin-left: 1rem;
   }
 
-  .navbar-menu__opcoes li a {
-    color: #9351b4;
-    padding: 0.3rem 0;
+  .navbar-menu__opcoes--aberto {
+    transform: initial;
+  }
+
+  .navbar-menu__opcoes--ativo {
+    border-color: #9351b4;
+  }
+  
+  .navbar-menu__opcoes--logado li:first-child {
+    order: 5;
+    margin-left: 1rem;
+  }
+
+  .navbar-menu__opcoes--logado li:nth-child(5) {
+    order: -1;
+    margin-left: 0;
   }
 }

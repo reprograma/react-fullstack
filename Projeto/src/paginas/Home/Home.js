@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { listaPostits } from '../../redux/actions'
+import { getPostitsFiltrados } from '../../redux/reducers'
 import Postit from '../../componentes/Postit/Postit'
 import carregando from './carregando.svg'
 import './Home.css'
@@ -13,7 +14,9 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.listaPostits()
+    if (this.props.usuario) {
+      this.props.listaPostits()
+    }
   }
 
   componentDidUpdate() {
@@ -53,6 +56,9 @@ class Home extends Component {
 }
 
 export default connect(
-  (state) => ({ usuario: state.usuario, postits: state.postits }),
+  (state) => ({ 
+    usuario: state.usuario, 
+    postits: getPostitsFiltrados(state) 
+  }),
   { listaPostits }
 )(Home)
