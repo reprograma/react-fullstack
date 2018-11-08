@@ -15,7 +15,7 @@ class Postit extends Component {
 
     const cadastrando = !this.props.id
     const form = evento.target
-    const dados = {
+    let dados = {
       titulo: form.titulo.value,
       texto: form.texto.value
     }
@@ -35,7 +35,7 @@ class Postit extends Component {
     this.props.removePostit(this.props.id)
   }
 
-  habilitaEdicao = (evento) => {
+  habilitaEdicao = () => {
     this.setState({ editando: true })
   }
 

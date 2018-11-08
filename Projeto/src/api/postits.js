@@ -8,7 +8,7 @@ export function postPostit(dados) {
   return protocolo.post('/postits', dados)
 }
 
-export function putPostits(dados) {
+export function putPostit(dados) {
   const url = `/postits/${dados.id}`
   const json = {
     titulo: dados.titulo,
@@ -17,7 +17,7 @@ export function putPostits(dados) {
   return protocolo.put(url, json)
 }
 
-export function deletePostits(id) {
+export function deletePostit(id) {
   const url = `/postits/${id}`
   return protocolo.delete(url)
 }

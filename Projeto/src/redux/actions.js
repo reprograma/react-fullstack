@@ -2,48 +2,86 @@ import * as apiUsuarios from '../api/usuarios'
 import * as apiPostits from '../api/postits'
 
 export function logaUsuario(dados) {
-  apiUsuarios
-    .postLogin(dados)
-    .then(resposta => {
-      return {
-        type: 'LOGA_USUARIO',
-        dados: resposta.usuario
-      }
-    })
-}
-
-export function deslogaUsuario() {
-  return {
-    type: 'DESLOGA_USUARIO'
+  return (dispatch) => {
+     apiUsuarios
+      .postLogin(dados)
+      .then(response => {
+        dispatch({ type: 'LOGA_USUARIO', dados: response.data.usuario })
+      })
+      .catch(erro => {
+        console.error(erro)
+        if (erro.response) {
+          alert(erro.response.data.erro)
+        }
+      })
   }
 }
 
-export function cadastraPostit(dados) {
-  // cadastra na api
-  
-  const id = `9d3cbb3b-a738-4632-9f89-785d7ff81f5${Math.random(100)}`
-  dados.id = id
+export function deslogaUsuario() {
+  return { type: 'DESLOGA_USUARIO' }
+}
 
-  return {
-    type: 'CADASTRA_POSTIT',
-    dados
+export function cadastraPostit(dados) {
+  return (dispatch) => {
+    apiPostits
+      .postPostit(dados)
+      .then(response => {
+        dados.id = response.data.id
+        dispatch({ type: 'CADASTRA_POSTIT', dados })
+      })
+      .catch(erro => {
+        console.error(erro)
+        if (erro.response) {
+          alert(erro.response.data.erro)
+        }
+      })
   }
 }
 
 export function alteraPostit(dados) {
-  // altera na api
-  
-  return {
-    type: 'ALTERA_POSTIT',
-    dados
+  return (dispatch) => {
+    apiPostits
+      .putPostit(dados)
+      .then(() => {
+        dispatch({ type: 'ALTERA_POSTIT', dados })
+      })
+      .catch(erro => {
+        console.error(erro)
+        if (erro.response) {
+          alert(erro.response.data.erro)
+        }
+      })
   }
 }
 
 export function removePostit(id) {
-  // remove na api
-  
-  return {
-    type: 'REMOVE_POSTIT',
-    id
+  return (dispatch) => {
+    apiPostits
+      .deletePostit(id)
+      .then(() => {
+        dispatch({ type: 'REMOVE_POSTIT', id })
+      })
+      .catch(erro => {
+        console.error(erro)
+        if (erro.response) {
+          alert(erro.response.data.erro)
+        }
+      })
+  }
+}
+
+export function listaPostits() {
+  return (dispatch) => {
+    apiPostits
+      .getPostits()
+      .then(response => {
+        dispatch({ type: 'LISTA_POSTITS', dados: response.data.postits })
+      })
+      .catch(erro => {
+        console.error(erro)
+        if (erro.response) {
+          alert(erro.response.data.erro)
+        }
+      })
   }
 }

@@ -11,7 +11,8 @@ function usuario(state = usuarioInicial, action) {
   switch(action.type) {
     case 'LOGA_USUARIO':
       const usuario = action.dados
-      localStorage.setItem('usuario', usuario)
+      const json = JSON.stringify(usuario)
+      localStorage.setItem('usuario', json)
       return usuario
     case 'DESLOGA_USUARIO':
       localStorage.removeItem('item')
@@ -32,17 +33,12 @@ function postits(state = [], action) {
         postit.id === action.dados.id ? action.dados : postit
       )
     case 'REMOVE_POSTIT':
-      return state.filter(postit => 
-        postit.id !== action.id
-      )
+      return state.filter(postit => postit.id !== action.id)
     default:
       return state
   }
 }
 
-const reducers = combineReducers({
-  usuario: usuario,
-  postits: postits
-})
+const reducers = combineReducers({ usuario, postits })
 
 export default reducers

@@ -30,10 +30,15 @@
 
 .postit__titulo,
 .postit__texto,
+.postit__botao-concluir {
+  font-size: inherit;
+}
+
+.postit__titulo,
+.postit__texto,
 .postit__botao-remover,
 .postit__botao-concluir {
   pointer-events: auto;
-  font-size: inherit;
   border: none;
   background: inherit;
 }

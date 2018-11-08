@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 let configuracoes = {
-  urlBase: 'https://reprograma-postit-api.herokuapp.com'
+  baseURL: 'https://reprograma-postit-api.herokuapp.com'
 }
 
 const json = localStorage.getItem('usuario')
