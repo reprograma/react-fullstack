@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { logaUsuario } from '../../redux/actions'
 import Link from '../../componentes/Link/Link'
 import Botao from '../../componentes/Botao/Botao'
 import Legenda from '../../componentes/Legenda/Legenda'
@@ -66,21 +67,7 @@ class Login extends Component {
   }
 }
 
-function passaAcoesNoProps(dispatch) {
-  return {
-    logaUsuario: (dados) => {
-      const acao = {
-        type: 'LOGA_USUARIO',
-        dados: dados
-      }
-
-      dispatch(acao)
-    }
-  }
-}
-
-const conectaNaStore = connect(null, passaAcoesNoProps)
-
-const LoginConectado = conectaNaStore(Login)
-
-export default LoginConectado
+export default connect(
+  null, 
+  { logaUsuario }
+)(Login)
