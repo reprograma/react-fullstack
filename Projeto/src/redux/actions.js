@@ -1,8 +1,15 @@
+import * as apiUsuarios from '../api/usuarios'
+import * as apiPostits from '../api/postits'
+
 export function logaUsuario(dados) {
-  return {
-    type: 'LOGA_USUARIO',
-    dados
-  }
+  apiUsuarios
+    .postLogin(dados)
+    .then(resposta => {
+      return {
+        type: 'LOGA_USUARIO',
+        dados: resposta.usuario
+      }
+    })
 }
 
 export function deslogaUsuario() {
