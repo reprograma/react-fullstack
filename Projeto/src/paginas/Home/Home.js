@@ -11,7 +11,6 @@ class Home extends Component {
     this.state = { carregando: false }
   }
 
-
   render() {
     if (!this.props.usuario) {
       return <Redirect to="/login" />

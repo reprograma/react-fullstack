@@ -1,15 +1,21 @@
 import { combineReducers } from 'redux'
 
-const usuarioInicial = null
+let usuarioInicial = null
+
+const json = localStorage.getItem('usuario')
+if (json) {
+  usuarioInicial = JSON.parse(json)
+}
 
 function usuario(state = usuarioInicial, action) {
   switch(action.type) {
     case 'LOGA_USUARIO':
-      const usuarioLogado = action.dados
-      return usuarioLogado
+      const usuario = action.dados
+      localStorage.setItem('usuario', usuario)
+      return usuario
     case 'DESLOGA_USUARIO':
-      const usuarioDeslogado = null
-      return usuarioDeslogado
+      localStorage.removeItem('item')
+      return null
     default:
       return state
   }
@@ -20,8 +26,6 @@ function postits(state = [], action) {
     case 'LISTA_POSTITS':
       return action.dados
     case 'CADASTRA_POSTIT':
-      const id = `9d3cbb3b-a738-4632-9f89-785d7ff81f5${state.length}`
-      action.dados.id = id
       return state.concat(action.dados)
     case 'ALTERA_POSTIT':
       return state.map(postit => 
@@ -29,7 +33,7 @@ function postits(state = [], action) {
       )
     case 'REMOVE_POSTIT':
       return state.filter(postit => 
-        postit.id !== action.dados.id
+        postit.id !== action.id
       )
     default:
       return state
