@@ -19,7 +19,7 @@ class Home extends Component {
     return (
       <main className="home">
         {this.state.carregando ? (
-          <img className="home__loading" src={carregando} alt="Carregando" />
+          <img className="home__carregando" src={carregando} alt="Carregando" />
         ) : (
           <div>
             <Postit />
@@ -42,8 +42,5 @@ class Home extends Component {
 }
 
 export default connect(
-  (state) => ({ 
-    usuario: state.usuario,
-    postits: state.postits 
-  })
+  (state) => ({ usuario: state.usuario, postits: state.postits })
 )(Home)

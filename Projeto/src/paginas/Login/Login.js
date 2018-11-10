@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { logaUsuario } from '../../redux/actions'
 import Link from '../../componentes/Link/Link'
 import Botao from '../../componentes/Botao/Botao'
@@ -28,8 +29,6 @@ class Login extends Component {
     }
 
     this.props.logaUsuario(dados)
-
-    this.props.history.push('/')
   }
 
   habilitaOuDesabilitaBotao = () => {
@@ -44,6 +43,10 @@ class Login extends Component {
   }
 
   render() {
+    if (this.props.usuario) {
+      return <Redirect to="/" />
+    }
+
     return (
       <main className="login">
         <h1>Login</h1>
@@ -68,6 +71,6 @@ class Login extends Component {
 }
 
 export default connect(
-  null, 
+  (state) => ({ usuario: state.usuario }), 
   { logaUsuario }
 )(Login)

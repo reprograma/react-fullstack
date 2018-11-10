@@ -17,6 +17,7 @@
 
 .postit__botao-remover {
   cursor: pointer;
+  font-size: 18px;
   margin-left: auto;
 }
 
@@ -28,10 +29,15 @@
 
 .postit__titulo,
 .postit__texto,
+.postit__botao-concluir {
+  font-size: inherit;
+}
+
+.postit__titulo,
+.postit__texto,
 .postit__botao-remover,
 .postit__botao-concluir {
   pointer-events: auto;
-  font-size: inherit;
   padding: 0.5rem;
   border: none;
   background: inherit;

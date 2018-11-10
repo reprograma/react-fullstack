@@ -6,13 +6,13 @@
   background-size: cover;
 }
 
-.home__loading {
+.home__carregando {
   display: block;
   margin: 0 auto;
 }
 
 @media (min-width: 992px) {
   .home {
-      padding: 1.5rem 10% 0;
+    padding: 1.5rem 10% 0;
   }
 }
