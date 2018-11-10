@@ -63,3 +63,13 @@ export function removePostit(id) {
       })
   } 
 }
+
+export function listaPostits() {
+  return (dispatch) => {
+    api
+      .get('/postits')
+      .then(response => {
+        dispatch({ type: 'LISTA_POSTITS', dados: response.data.postits })
+      })
+  }
+}
