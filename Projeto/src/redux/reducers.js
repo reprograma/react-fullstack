@@ -39,6 +39,20 @@ function postits(state = [], action) {
   }
 }
 
-const reducers = combineReducers({ usuario, postits })
+function filtro(state = '', action) {
+  switch(action.type) {
+    case 'ALTERA_FILTRO':
+      return action.texto
+    default:
+      return state
+  }
+}
+
+// const state = {
+//   usuario: { token, email, foto },
+//   postits: [{ id, titulo, texto }],
+//   filtro: 'Javascript'
+// }
+const reducers = combineReducers({ usuario, postits, filtro })
 
 export default reducers

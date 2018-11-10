@@ -73,3 +73,10 @@ export function listaPostits() {
       })
   }
 }
+
+export function alteraFiltro(texto) {
+  return {
+    type: 'ALTERA_FILTRO', 
+    texto
+  }
+}

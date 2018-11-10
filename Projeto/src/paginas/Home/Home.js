@@ -27,6 +27,10 @@ class Home extends Component {
       return <Redirect to="/login" />
     }
 
+    const postits = this.props.postits.filter(
+      item => item.titulo.toLowerCase().includes(this.props.filtro.toLowerCase())
+    )
+
     return (
       <main className="home">
         {this.state.carregando ? (
@@ -36,7 +40,7 @@ class Home extends Component {
             <Postit />
 
             <div>
-              {this.props.postits.map(postit => (
+              {postits.map(postit => (
                 <Postit 
                   key={postit.id}
                   id={postit.id}
@@ -53,6 +57,6 @@ class Home extends Component {
 }
 
 export default connect(
-  (state) => ({ usuario: state.usuario, postits: state.postits }),
+  (state) => ({ usuario: state.usuario, postits: state.postits, filtro: state.filtro }),
   { listaPostits }
 )(Home)
