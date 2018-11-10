@@ -60,7 +60,6 @@ class Campo extends Component {
         {this.state.erro && (
           <p className="campo__erro">{this.state.erro}</p>
         )}
-        
       </div>
     )
   }

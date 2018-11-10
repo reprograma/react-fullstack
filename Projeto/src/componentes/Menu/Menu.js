@@ -51,7 +51,7 @@ class Menu extends Component {
         </button>
 
         <ul className={classesDasOpcoes}>
-        {this.props.usuario && (
+          {this.props.usuario && (
             <li>
               <img className="navbar-menu__foto" src={this.props.usuario.foto} alt="Foto do usuário" />
             </li>
