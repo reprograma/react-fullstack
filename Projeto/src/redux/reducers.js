@@ -33,7 +33,7 @@ function postits(state = [], action) {
     case 'REMOVE_POSTIT':
       return state.filter(item => item.id !== action.id)
     case 'LISTA_POSTITS':
-        return action.dados
+      return action.dados
     default:
       return state
   }
