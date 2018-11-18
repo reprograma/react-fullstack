@@ -13,13 +13,18 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.listaPostits()
+    if (this.props.usuario) {
+      this.props.listaPostits()
+    }
+    
   }
 
   componentDidUpdate() {
-    if (this.state.carregando) {
-      this.setState({ carregando: false })
-    }
+    this.setState((prevState) => {
+      if (prevState.carregando) {
+        return { carregando: false }
+      }
+    })
   }
 
   render() {
@@ -36,7 +41,7 @@ class Home extends Component {
         {this.state.carregando ? (
           <img className="home__carregando" src={carregando} alt="Carregando" />
         ) : (
-          <div>
+          <>
             <Postit />
 
             <div>
@@ -49,7 +54,7 @@ class Home extends Component {
                 />
               ))}
             </div>
-          </div>
+          </>
         )}
       </main>
     )

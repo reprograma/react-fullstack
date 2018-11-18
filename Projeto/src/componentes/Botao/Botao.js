@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Botao.css'
 
 function Botao(props) {
@@ -13,6 +14,11 @@ function Botao(props) {
       {props.children}
     </button>
   )
+}
+
+Botao.propTypes = {
+  desabilitado: PropTypes.bool,
+  children: PropTypes.node.isRequired
 }
 
 export default Botao
